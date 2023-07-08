@@ -54,6 +54,7 @@
   --bs-font-sans-serif: "Plus Jakarta Sans";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-gradient-duo: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -3643,7 +3644,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: var(--bs-nav-link-hover-color);
+  color: var(--bs-link-hover-color);
 }
 .nav-link.disabled {
   color: var(--bs-nav-link-disabled-color);
@@ -3741,7 +3742,7 @@ textarea.form-control-lg {
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
-  --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-active-color: rgb(165, 0, 165);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
   --bs-navbar-brand-font-size: 1.25rem;
@@ -3762,7 +3763,14 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+  /* transition: .3s; */
 }
+
+/* .navbar.sticky {
+  background-color: red !important;
+} */
+
+
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -4626,6 +4634,38 @@ textarea.form-control-lg {
 .btn .badge {
   position: relative;
   top: -1px;
+}
+
+.text-animado {
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: .7px #e21e80;
+  background-image: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: 0 0;
+  animation: BgText 6s linear infinite;
+  animation-delay: 1s;
+}
+
+.text-animado::before {
+  content: "";
+  position: absolute;
+  top: 80;
+  left: 0;
+  width: 18.1%;
+  height: 4%;
+  z-index: -1;
+}
+
+/* Animaciones de text-animado */
+@keyframes BgText {
+  0%,10%,100% {
+    background-position: -33rem 0;
+  }
+  65%,85% {
+    background-position: 0 0;
+  }
 }
 
 .alert {
